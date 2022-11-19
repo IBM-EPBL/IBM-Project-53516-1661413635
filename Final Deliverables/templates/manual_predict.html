@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Predicion
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Montserrat';
+        }
+        .header{
+            top: 0;
+            margin: 0px;
+            left: 0px;
+            right: 0px;
+            position: fixed;
+            background-color: black;
+            color: white;
+            box-shadow: 0px 8px 4px grey;
+            overflow: hidden;
+            padding: 15px;
+            font-size: 2vw;
+            width: 100%;
+            text-align: left;
+            padding-left: 100px;
+            opacity: 0.9;
+        }
+        .header-left{
+            font-size: 40px;
+            text-align: center;
+        }
+        .content{
+            margin-top: 100px;
+        }
+        .text{
+            font-size: 20px;
+            margin-top:10px;
+            text-align: center;
+        }
+        input[type=number],select{
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=submit]{
+            width: 50%;
+            background-color: #000000;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover{
+            background-color: #5d6568;
+            color:#ffffff;
+            border-color: black;
+        }
+        form{
+            margin-top: 20px;
+        }
+        .result{
+            color: black;
+            margin-top:30px;
+            margin-bottom:20px;
+            font-size: 25px;
+            color:red;
+        }
+    </style>
+</head>
+<body align="center">
+    <div class="header">
+        <div>Fuel Consumption</div>
+    </div>
+    <div class="content">
+        <div class="header_text">Fuel Consumption Predicion</div>
+        <div class="text">Fill in and below details to predict the consumption depenting on the gas type.</div>
+        <div class="result">
+            {{prediction_text}}
+        </div>
+        <form action="{{url_for('y_predict')}}" method="post">
+            <input type="number" step="any" id="distance" name="distance" placeholder="distance(km)">
+            <input type="number" id="speed" name="speed" placeholder="speed(km/h)">
+            <input type="number" id="temp_inside" name="temp_insidet" placeholder="temp_inside(°C)">
+            <input type="number" id="temp_outside" name="temp_outside" placeholder="temp_outside(°C)">
+            <input type="number" id="AC" name="AC" placeholder="AC">
+            <input type="number" id="rain" name="rain"
+            placeholder="rain">
+            <input type="number" id="sun" name="sun"
+            placeholder="sun">
+            <input type="number" id="E10" name="E10" placeholder="E10">
+            <input type="number" id="SP98" name="SP98" placeholder="SP98">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+  
+
+</body>
